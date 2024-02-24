@@ -1,12 +1,7 @@
-local QBCore = exports['qb-core']:GetCoreObject()
+local QBCore = exports['ac-core']:GetCoreObject()
 local Data = {
     Peds = {}
 }
-
-function PoliceAlert()
-    -- Put your police alert code
-    exports['ps-dispatch']:VangelicoRobbery()
-end
 
 function BreakClass()
     QBCore.Functions.Progressbar('jewelry_robbery', 'COLLECTING', 5000, false, true, {
@@ -59,17 +54,15 @@ RegisterNetEvent('ac-jewelryrobbery:[Client]:SetAlarmOff', function()
         Wrapper.TriggerCallback('ac-jewelryrobbery:[Server]:GetAlarmState', function(Alarm)
             if not Power then
                 if not Alarm then
-                    exports['ps-ui']:Thermite(function(success)
-                        if success then
-                            PoliceAlert()
-                            TriggerServerEvent('ac-jewelryrobbery:[Server]:ChangeAlarmState', true)
-                            TriggerServerEvent('ac-jewelryrobbery:[Client]:ResetCooldown')
-                            Wrapper:Notify('ALARM IS ALREADY OFF', 'error')
-                        else
-                            SpawnPed()
-                            Wrapper:Notify('HACK FAILED AND SWAT ON YOUR WAY', 'error')
-                        end
-                    end, 4, 4, 3)
+                    if AlarmHack() then
+                        PoliceAlert()
+                        TriggerServerEvent('ac-jewelryrobbery:[Server]:ChangeAlarmState', true)
+                        TriggerServerEvent('ac-jewelryrobbery:[Client]:ResetCooldown')
+                        Wrapper:Notify('ALARM IS ALREADY OFF', 'error')
+                    else
+                        SpawnPed()
+                        Wrapper:Notify('HACK FAILED AND SWAT ON YOUR WAY', 'error')
+                    end
                 else
                     Wrapper:Notify('ALARM IS ALREADY OFF', 'error')
                 end
@@ -87,14 +80,12 @@ RegisterNetEvent('ac-jewelryrobbery:[Client]:SetPowerOff', function()
         Wrapper.TriggerCallback('ac-jewelryrobbery:[Server]:GetPowerState', function(Power)
             if Alarm then
                 if not Power then
-                    exports['ps-ui']:Scrambler(function(success)
-                        if success then
-                            TriggerServerEvent('ac-jewelryrobbery:[Server]:ChangePowerState', true)
-                            Wrapper:Notify('HACK SUCCESS', 'success')
-                        else
-                            Wrapper:Notify('HACK FAILED', 'error')
-                        end
-                    end, "alphabet", 10, 0)
+                    if PowerHack() then
+                        TriggerServerEvent('ac-jewelryrobbery:[Server]:ChangePowerState', true)
+                        Wrapper:Notify('HACK SUCCESS', 'success')
+                    else
+                        Wrapper:Notify('HACK FAILED', 'error')
+                    end
                 else
                     Wrapper:Notify('POWER IS ALREADY OFF', 'error')
                 end
