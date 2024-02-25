@@ -12,6 +12,7 @@ server_script{
 
 shared_scripts {
     'shared/sh_settings.lua',
+    'shared/sh_exports.lua',
     'shared/sh_main.lua',
     'shared/sh_peds.lua'
 }

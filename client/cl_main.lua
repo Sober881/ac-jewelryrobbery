@@ -1,4 +1,4 @@
-local QBCore = exports['ac-core']:GetCoreObject()
+local QBCore = exports['qb-core']:GetCoreObject()
 local Data = {
     Peds = {}
 }
