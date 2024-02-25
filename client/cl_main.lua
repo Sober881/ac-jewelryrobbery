@@ -58,7 +58,7 @@ RegisterNetEvent('ac-jewelryrobbery:[Client]:SetAlarmOff', function()
                         PoliceAlert()
                         TriggerServerEvent('ac-jewelryrobbery:[Server]:ChangeAlarmState', true)
                         TriggerServerEvent('ac-jewelryrobbery:[Client]:ResetCooldown')
-                        Wrapper:Notify('ALARM IS ALREADY OFF', 'error')
+                        Wrapper:Notify('HACK SUCCESS', 'success')
                     else
                         SpawnPed()
                         Wrapper:Notify('HACK FAILED AND SWAT ON YOUR WAY', 'error')
