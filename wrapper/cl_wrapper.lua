@@ -24,9 +24,9 @@ function Wrapper:Notify(Text, Type, Length)
     end
 end
 
-function Wrapper:Target(coords, name, type, trigger, icon, label)
+function Wrapper:Target(coords, name, type, trigger, icon, label, zonex, zoney)
     if SHConfig.Settings.Target == 'QB' then
-        exports['qb-target']:AddBoxZone(name, coords, 0.35, 0.35, {
+        exports['qb-target']:AddBoxZone(name, coords, zonex, zoney, {
             name = name,
             heading = 0.0,
             debugPoly = false,
@@ -47,7 +47,7 @@ function Wrapper:Target(coords, name, type, trigger, icon, label)
     if SHConfig.Settings.Target == 'OX' then
         Wrapper.Zone[name] = exports["ox_target"]:addBoxZone({
         coords = vec3(coords.x, coords.y, coords.z),
-        size = vec3(0.35, 0.35, 3),
+        size = vec3(zonex, zoney, 3),
         rotation = 0.0,
         debug = false,
             options = {
@@ -61,7 +61,7 @@ function Wrapper:Target(coords, name, type, trigger, icon, label)
         })
     end
     if SHConfig.Settings.Target == 'BT' then
-        exports['bt-target']:AddBoxZone(name, vector3(coords.x,coords.y,coords.z), 0.35, 0.35, {
+        exports['bt-target']:AddBoxZone(name, vector3(coords.x,coords.y,coords.z), zonex, zoney, {
             name = name ,
             heading = 0.0,
             minZ = coords.z - 2,
