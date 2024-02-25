@@ -125,7 +125,7 @@ AddEventHandler('ac-jewelryrobbery:[Client]:BreakGlass', function()
 end)
 
 CreateThread(function()
-    Wrapper:Target(SHConfig.Main.ElectricBoxCoords, 'jewelry_target_electricbox', 'server', 'ac-jewelryrobbery:[Server]:Power', 'fas fa-list', 'Control Panel')
-    Wrapper:Target(SHConfig.Main.LaptopCoords, 'jewelry_target_laptop', 'server', 'ac-jewelryrobbery:[Server]:Alert', 'fas fa-laptop', 'Laptop')
-    for k, v in pairs(SHConfig.Main.GlassCoords) do Wrapper:Target(v[1], 'jewelry_target_' .. k, 'client', 'ac-jewelryrobbery:[Client]:BreakGlass', 'fas fa-hammer', 'Break') end
+    Wrapper:Target(SHConfig.Main.ElectricBoxCoords, 'jewelry_target_electricbox', 'server', 'ac-jewelryrobbery:[Server]:Power', 'fas fa-list', 'Control Panel', 0.55, 0.55)
+    Wrapper:Target(SHConfig.Main.LaptopCoords, 'jewelry_target_laptop', 'server', 'ac-jewelryrobbery:[Server]:Alert', 'fas fa-laptop', 'Laptop', 0.55, 0.55)
+    for k, v in pairs(SHConfig.Main.GlassCoords) do Wrapper:Target(v[1], 'jewelry_target_' .. k, 'client', 'ac-jewelryrobbery:[Client]:BreakGlass', 'fas fa-hammer', 'Break', 0.35, 0.35) end
 end)

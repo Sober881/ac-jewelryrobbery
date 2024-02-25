@@ -62,7 +62,7 @@ function Wrapper:Target(coords, name, type, trigger, icon, label, zonex, zoney)
     end
     if SHConfig.Settings.Target == 'BT' then
         exports['bt-target']:AddBoxZone(name, vector3(coords.x,coords.y,coords.z), zonex, zoney, {
-            name = name ,
+            name = name,
             heading = 0.0,
             minZ = coords.z - 2,
             maxZ = coords.z + 2,
