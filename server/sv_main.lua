@@ -1,4 +1,3 @@
-local QBCore = exports['qb-core']:GetCoreObject()
 local Data = {
     IsAlarmOff = false,
     IsPowerOff = false,
